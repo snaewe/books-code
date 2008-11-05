@@ -1,0 +1,1365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>Source Code for Standard C++ IOStreams and Locales</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta name="ProgId" content="Word.Document">
+		<meta name="Generator" content="Microsoft Word 9">
+		<meta name="Originator" content="Microsoft Word 9">
+		<link rel="File-List" href="./doc-Dateien/filelist.xml">
+			<meta name="author" content="Klaus Wittlich">
+	</head>
+	<body lang="DE" style="tab-interval:35.4pt">
+		<div class="Section1">
+			<h1>
+				Source Code for "Standard C++ IOStreams and Locales"</h1>
+			<hr width="100%" size="2">
+			<h1><span style="mso-fareast-font-family:'MS Mincho'">Contents<o:p></o:p></span></h1>
+			<p class="MsoPlainText"><span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span></p>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ 1. <a href="#Foreword">Foreword</a>
+             <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">2. <a href="#Purpose">Purpose of the 
+						Examples<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">3. <a href="#conventions">Coding 
+						Conventions</a>
+             <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>a. <a href="#Names_of_Files">
+						Names of Files<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span><span style="mso-spacerun: yes"></span>i. <a href="#3.a.i._cpp_-_Files">
+						cpp - Files</a>
+             <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span><span style="mso-spacerun: yes"></span>ii. <a href="#h">
+						h - Files<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>b. <a href="#Contents_of_cpp_-_Files">
+						Contents of cpp - Files<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>c. <a href="#Relation">
+						Relation between Source Code and Book Pages<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>d. <a href="#Enabling">
+						Enabling / Disabling / Switching Code Segments<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>e. <a href="#Deviations">
+						Deviations from Book's Code<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">4.<span style="mso-spacerun: yes"></span>a. <a href="#Table">
+						Table: Page Covered by Example<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>b. <a href="#Include">
+						Include Graph<o:p></o:p></a>
+             </span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">5. <a href="#Directory">Directory 
+						Organization</a>
+             <span style="mso-tab-count:1"></span><o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">6. <a href="#Questions">Further 
+						Questions</a>
+            &nbsp;</span></font>
+			<br>
+			<br>
+			<hr width="100%" size="2">
+			<p class="MsoPlainText"><span style="mso-fareast-font-family:'MS Mincho'"></span></p>
+			<p class="MsoPlainText"><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>
+					<o:p></o:p>
+				</span></p>
+			<h1><span style="mso-fareast-font-family:'MS Mincho'"><a name="Foreword"></a>
+             1. Foreword <o:p></o:p></span></h1>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ After reading   this   excellent  book about IOStreams and enjoing the beautiful<o:p></o:p></span>
+				technics described there I wanted to find out the work arounds to make them<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+				<span style="mso-fareast-font-family:'MS Mincho'">run under
+the   Visual     C++ 6 compiler. That was the compiler I used at work.<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'"> Fortunately 
+(for   me)  I could read on Angelika Langer's homepage that she did <o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'">
+            not  find the time do provide examples but she wants to do so.
+ So  I  told   her<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+            about my plan to write the examples. She promised to help me
+and   kept   this  <o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'">
+          promise.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Sometimes it  was   really 
+   hard to develop with that compiler. If something did <o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'">
+             not compile or run I wondered if it was my insufficient understanding
+     of  C++, <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+             if there was a compiler bug or if there was a mistake in the 
+book.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:&apos;MS:">During that time of mental
+   pains the Visual C++.Net came up and I got a much <o:p></o:p></span><span style="mso-fareast-font-family:&apos;MS:">
+    more suitable environment to develop the examples. With the better environment<o:p></o:p></span><span style="mso-fareast-font-family:&apos;MS:">
+it became easier to develop    the examples, so easy that it became possible
+to <o:p></o:p></span><span style="mso-fareast-font-family:&apos;MS:">  
+ finish them.<o:p></o:p></span>
+				The examples were since then developed with the MVC.NET for a lot of C++ 
+				constructs do not run with the VC++ 6. </font><font size="+1">
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Though the disclaimers 
+      identify me as author the examples should be seen as a <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">two - person 
+  project.     One person had the necessary capacities to do the work,<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">that was 
+my  part.    The  other person had the neccessary C++ knowledge and <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">   symathetic 
+ understanding    to help and encourage a sometimes very confused  and <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">    helpless worker.
+   This  second person is Angelika Langer, who really is willing<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'"> to share 
+her   knowledge    with her readers. I always enjoyed the freedom to ask<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">  her everything, 
+  sometimes   even stupid questins. At this place I want to say <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">       many  thanks
+  to her for support and encouraging. <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Many thanks I  want  
+to  say to my employer, SAE IT-systems for the great <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">     tolerance of my
+ researching  projects.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Developing the   examples 
+    enlarged my respect toward Angelika Langer and Klaus<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">   Kreft. They 
+had   no  suitable compiler to test the code they wrote in their  book.<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">    Writing code
+  without   the chance to test it is very error prone, of course.<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">Later with help
+  of  the  compiler it was psooible to find some errors in the <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">  book, errors 
+  I  did   not find during studying it. After the errors were detected<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">by the compiler
+    I  often  did not understand what was wrong there. With there <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">  was no compiler 
+   to  test the code it is a great achievement by Angelika Langer  <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">and  Klaus 
+Kreft    to  write the code with only such few errors.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">-- Klaus  Wittlich   
+--<o:p></o:p></span>
+			</font>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<hr width="100%" size="2">
+			<h1><span style="mso-fareast-font-family:'MS Mincho'"><a name="Purpose"></a>
+             2. Purpose of the Examples<o:p></o:p></span>
+			</h1>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ The examples  were   provided   to learn from book, enjoy them and play
+with them.<o:p></o:p></span>
+				You shurely will have the best benefits from them if you try to run them on 
+				your<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+				<span style="mso-fareast-font-family:'MS Mincho'">own computer, 
+ modify    them and see what happens.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Code that is  not   intended 
+   to perform some actions is not part of the examples.<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">   That type of
+ code   is  e.g. pure class definitions without function <o:p></o:p></span>
+				implementations.<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">In the *.h files    you 
+  will  find a comment that can be used for your own examples<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'"> for copy
+-  paste    -  including.  In the header files you will find a comment like<o:p></o:p></span>
+				<br>
+			</font><blockquote><font face="Courier New, Courier, monospace" size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             /*<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">#include 
+filename.h<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">*/<o:p></o:p></span></font>
+			</blockquote><font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ in filename.h.    You   can  copy this comment to include it into your own 
+file. <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+   This helps  avoiding     including the wrong header as a result of a typo.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">In the source   files 
+   you find the disclaimer:<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Based on source    code 
+  published in the book "Standard C++ IOStreams <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">     and Locales"  by Angelika
+Langer &amp; Klaus Kreft, Copyright (c) 2000  by    <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">   Addison  Wesley 
+Longman,  Inc.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Permission  to  use, 
+  copy,  and modify this software for any non-profit<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">       purpose is  hereby 
+ granted without fee.<span style="mso-spacerun: yes"></span>   Neither 
+ the author of this <o:p></o:p></span>
+				source code, Klaus Wittlich, nor the authors of the above mentioned
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+				<span style="mso-fareast-font-family:'MS Mincho'">        book, Angelika 
+  Langer and Klaus Kreft, nor the publisher, Addison<o:p></o:p></span>
+				Wesley Longman, Inc., make any representations about the suitability of this
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+				<span style="mso-fareast-font-family:'MS Mincho'">software 
+for   any   purpose.<span style="mso-spacerun: yes"></span>It is provided 
+  "as is"  without express or <o:p></o:p></span>
+				implied warranty.<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+			</font>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<hr width="100%" size="2">
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<span style="mso-tab-count:1"></span>
+				<o:p></o:p>
+			</span>
+			<p class="MsoPlainText"><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span></p>
+			<h1><span style="mso-fareast-font-family:'MS Mincho'"><a name="conventions"></a>
+             3. Coding Conventions<o:p></o:p></span></h1>
+			<p class="MsoPlainText"><span style="mso-fareast-font-family:'MS Mincho'"></span></p>
+			<h2>
+				<span style="mso-fareast-font-family:'MS Mincho'"><a name="Names_of_Files"></a>
+             3.a Names of Files<o:p></o:p></span></h2>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<h3><a name="3.a.i._cpp_-_Files"></a>
+				<span style="mso-fareast-font-family:'MS Mincho'"><a name="cpp"></a>
+             3.a.i. cpp - Files<o:p></o:p></span></h3>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span><font size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             The cpp - files are named to their pages, exNNN, where NNN is
+ the   page   this    <o:p></o:p></span>
+				example deals with. E. g. ex013.cpp is the example from page 13.
+				<span style="mso-fareast-font-family:'MS Mincho'"></span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">For some pages    more 
+  than one example is required. In this case the examples<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'"> are named
+ exNNNa.cpp,      exNNNb.cpp etc.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">In cases the   code
+  of  an example - cpp file in not fully within one page of <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">the book
+ the   first    page of the book is used for thename. E. g. ex328b.cpp<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">contains sample    code 
+  from page 328 and 329.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Some code is  removed 
+    into include files. In these cases NNN is the first page<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">touched
+by  the   cpp   file,  not by the include files.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">At the bottom   of 
+each   cpp - FIle you find sample input and output for the <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">  program.<o:p></o:p></span>
+			</font>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<br>
+			<h3><span style="mso-fareast-font-family:'MS Mincho'"><a name="h"></a>
+             3.a.ii. h - Files<o:p></o:p></span></h3>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span><font size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             h - files are named after the class they contain and the (first) 
+  page   that    <o:p></o:p></span>
+				class occurs. Several classes are refined with incresing page number.<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">So the filenames   
+ of  h - files have the format Classname_Page.h, e. g. <o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'">
+             date_170.h. That means: class date with version from page 170.<o:p></o:p></span>
+			</font>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<br>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><a name="Contents_of_cpp_-_Files"></a>
+             3.b. Contents of cpp - Files<o:p></o:p></span>
+			</h2>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span><font size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             cpp - files always contain one main() function. They are intendet
+   to  be  the  source code of a fully running program.</span><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">At their end   they
+  have  a comment what their input and their output are.<o:p></o:p></span></font>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+			</h2>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><a name="Relation"></a>
+             3.c. Relation between Source Code and Book Pages<o:p></o:p></span>
+			</h2>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span><font size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             Code from a book's page is sandwitched between two comment lines<o:p></o:p></span>
+				<br>
+			</font><blockquote><font face="Courier New, Courier, monospace" size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             // p. NNN {{{<o:p></o:p></span>
+				</font><font size="+1">
+					<br>
+				</font></blockquote><font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ and <o:p></o:p></span>
+				<br>
+			</font><blockquote><font face="Courier New, Courier, monospace" size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+             // }}}<o:p></o:p></span>
+					<br>
+				</font></blockquote><font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ where NNN   is  the   page of the book.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">E. g.       <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<tt>
+					<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>// p. 270 {{{<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>locale global;<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>cout &lt;&lt; "global: " &lt;&lt; global.name() 
+&lt;&lt;     endl;<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>// }}}<o:p></o:p></span>
+				</tt></font>
+			<br>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span>
+			</h2>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><a name="Enabling"></a>
+             3.d. Enabling / Disabling / Switching Code Segments<o:p></o:p></span>
+			</h2>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+     The  examples   are intended to play with them. In some cases it is
+useful  to        </span><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span><span style="mso-fareast-font-family:'MS Mincho'">
+ activate a  code   segment   that is commented out and recompile the file. 
+      <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Theses  code   segments 
+  to be enabled / disabled aresandwiched between lines<o:p></o:p></span>
+				<br>
+				<tt>
+					<span style="mso-fareast-font-family:'MS Mincho'">/*<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">Some 
+Code<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">//*/<o:p></o:p></span>
+				</tt>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">or <o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<tt>
+					<span style="mso-fareast-font-family:'MS Mincho'">/*<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">Some 
+Code<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">//*/<o:p></o:p></span>
+				</tt>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">All you  have  
+to  do to activate "Some Code" is to toggle from /* //* and vice       <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'"> versa. (You 
+ only   need   to remove / add onechar in your source code.)<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Some examples  
+  offer  you coices between two possible code segments to compare <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">them. They 
+ are   sandwiched    between three comment lines:<o:p></o:p></span>
+				<br>
+				<tt>
+					<span style="mso-fareast-font-family:'MS Mincho'">
+						<o:p></o:p>
+					</span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">/*<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">Choice 
+ 1<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">/*/<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">Choice 
+ 2<o:p></o:p></span>
+					<br>
+					<span style="mso-fareast-font-family:'MS Mincho'">//*/<o:p></o:p></span>
+				</tt>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">By toggeling   
+ /*  to //* you select your code choices by adding / removing only<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">one /<o:p></o:p></span>
+			</font>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<br>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><a name="Deviations"></a>
+             3.e. Deviations from Book's Code<o:p></o:p></span>
+			</h2>
+			<span style="mso-fareast-font-family:'MS Mincho'"></span>
+			<ul>
+				<li>
+					<font size="+1">
+						<span style="mso-fareast-font-family:'MS Mincho'">
+  The   formatiing    in the examples often has changed. This has two reasons.<o:p></o:p></span>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>One is that the examples are easier to understand using
+  the   debugger.<o:p></o:p></span>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>
+             The other reason are my coding customs.</span></font></li>
+			</ul>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'"></span></font>
+			<ul>
+				<li>
+					<font size="+1">
+						<span style="mso-fareast-font-family:'MS Mincho'">
+  The   book   often  shows code skelettons. These must be filled with meat.</span><span style="mso-fareast-font-family:'MS Mincho'">
+              The meat code is outside page braces "// p. NNN {{{" and "//
+ }}}"   or            <o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>inserted within "// {{{" "// }}}" braces.<o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+						</span></font></li>
+			</ul>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'"></span></font>
+			<ul>
+				<li>
+					<font size="+1">
+						<span style="mso-fareast-font-family:'MS Mincho'">
+  Sometimes      the code of the book is changed a little. This is often
+done  as a&nbsp;</span><span style="mso-fareast-font-family:'MS Mincho'">    
+      chaffering result with the compiler to make the example running.  In
+ some<o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>cases it is done to make code snippets easier to handle. 
+  If  a  code  snippet<o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>from book is like<o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+						</span></font></li>
+			</ul>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'"></span></font> <blockquote><font size="+1"><tt><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>if (condition)<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>return;<o:p></o:p></span>
+					</tt></font></blockquote><font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>the code is put into main and is change to<o:p></o:p></span>
+				<br>
+			</font><blockquote><font size="+1"><tt><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>int main()<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>{<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>...<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>if (condition)<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span><span style="mso-spacerun: yes"></span>return 
+0;  //  !!!   main  retuns int<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>...<o:p></o:p></span>
+						<br>
+						<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>}<o:p></o:p></span>
+					</tt></font></blockquote><font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; Deviations are commented with "// !!!" - Comments.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<span style="mso-spacerun: yes"></span>
+					<o:p></o:p>
+				</span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>Additions of code segments are sandwitched between 
+   "//   {{{"  and "// }}}" <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+             braces. They have no page hint p. NNN.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+			</font>
+			<ul>
+				<li>
+					<font size="+1">
+						<span style="mso-fareast-font-family:'MS Mincho'">
+      Some   examples  from book show possible implementations for some STL 
+ details.</span><span style="mso-fareast-font-family:'MS Mincho'"><br>
+             To avoid name clashes with namespace std these parts are encapsulated
+     in<o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>
+             namespace book. namespace book has the same meaning as namespace 
+  std,   the<o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-spacerun: yes"></span>
+             only difference is, the code results from book.<o:p></o:p></span><o:p></o:p><span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+						</span></font></li>
+			</ul>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<hr width="100%" size="2">
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><a name="Table"></a>
+				</span></h2>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<span style="mso-tab-count:2"></span>
+			</span>
+			<span style="mso-fareast-font-family:'MS Mincho'"></span>
+			<pre wrap=""></pre>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'">4.a. Table:
+   Page Covered by Example<o:p></o:p></span></h2>
+			<table border="1" cellspacing="1" bordercolor="#000000" width="100%">
+				<tbody>
+					<tr>
+						<td width="11%" valign="top" height="30">
+							<p><font size="+1">PAGE</font></p>
+						</td>
+						<td width="20%" valign="top" height="30"><font size="+1"> EXAMPLE(S)</font></td>
+						<td width="69%" valign="top" height="30">
+							<p><font size="+1">COMMENT</font></p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">Preface, xviii </font>
+							</p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex026.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Code is identic with p. 26</font></p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">Preface, xxv</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex026.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Code is idenstic with p. 26</font></p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">14</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex014a.cpp, ex014b.cpp<br>
+								</font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">IOStreams have no put function, so this is code is not part of the 
+									examples.</font></p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">81</font></p>
+						</td>
+						<td width="20%" valign="top"><font size="+1"> </font>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">template&lt;class charT ... is the same as p. 80.</font></p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">121</font></p>
+						</td>
+						<td width="20%" valign="top"><font size="+1"> </font>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example provided for the code in the book shows only the priciple 
+									of the get function and is not intended to show something executable. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">122</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example provided for the code in the book shows only the priciple 
+									of the get function and is not intended to show something executable.</font></p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">147 </font>
+							</p>
+						</td>
+						<td width="20%" valign="top"><font size="+1"> </font>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">For class date this page is no example provided. You find p. 148 a 
+									better version of class date.
+									<br>
+									Testcode second half p. 147 is repeated p. 149. Use the example there. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">161 - 196</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex161.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">170 - 176</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex170.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">176</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">For the second half of the page no example is not provided for only 
+									the principle is shown in the code. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">177</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example is provided for here only the architecture of the 
+									manipulators ist shown. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">182</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">For the code snippet at the bottom of the page there is no example 
+									provided. That code snippet only shows the idea of what is needed. The 
+									implementation what is needed can be found p. 183 </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">188, 189</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex187.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">190</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex181.cpp, ex187.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">193 </font>
+							</p>
+						</td>
+						<td width="20%" valign="top"><font size="+1"> </font>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example, the code snippet shows the goal of the next steps. The 
+									effect of that code is similar to that of p. 221 </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">196</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex196.cpp, ex207.cpp</font></p>
+							<p><font size="+1">defaultPatt: ex221.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">For the top code snippet of p. 196 no example is provided for it is 
+									a subset of the bottom code that page. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">198</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">The setfmt_helper function is repeted p. 203, the class 
+									setfmt_helper has only slight differences to the sample code p. 203 / 
+									204.Therefore no example is provided for p. 198 </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">199</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example is provided. The book writes about the code: "It could 
+									like this:" A better version can be found p. 204. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">202</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Code is repeated p. 204, so see example for p. 204 </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">203</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Code snippet upper half of page: The code is repeated p. 204. The 
+									other code can be found in examples ex207.cpp and ex210.cpp . </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">204</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex207.cpp, ex210.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">205</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex207.cpp, ex210.cpp, ex221.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">206</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex207.cpp, ex210.cpp, ex221.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">209</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example provided. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">210</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex210.cpp, ex221.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">212</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex210.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">213</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example provided. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">214</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example provided for it is only a scetch here. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">215, 216</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">ex221.cpp </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">217</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">Top of page ex221.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Bottom: No example, code was repeated from p. 210 </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">219</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example, the annotation from book "The compiler would complain 
+									..." states out that this is not executable code </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">220</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex221.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">222</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex221.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">229</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex234.cpp, ex239.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">230 - 235 top of page</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex234.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">235 bottom of page</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex236.cpp, ex239.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">237-239 main</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex236.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">239 inbuf - 243</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex239.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">270</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex269.cpp<br>
+									bottom: ex270.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">315</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">The use of decimal point was shown in ex300.cpp, so no new example 
+									was provided. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">316</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex316.cpp, ex317.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">317</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex316.cpp, ex317.cpp , ex323.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">318</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex316.cpp, ex318.cpp, ex323.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">322</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Code is identical with p. 309 and 310, so no new example is 
+									provided. </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">324</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">No example provided for the code here only shows the principle. This 
+									principle is applied p. 321 bottom </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">329</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex328b.cpp </font>
+							</p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1"> </font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="11%" valign="top">
+							<p><font size="+1">333, 335 - 342</font></p>
+						</td>
+						<td width="20%" valign="top">
+							<p><font size="+1">ex342.cpp</font></p>
+						</td>
+						<td width="69%" valign="top">
+							<p><font size="+1">Note: do_put taken from p. 335 instead that version from p. 337 for 
+									at p. 337 it is a pure virtual function</font></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<hr width="100%" size="2">
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<span style="mso-tab-count:1"></span>
+			</span><br>
+			<h2><span style="mso-fareast-font-family:'MS Mincho'"><a name="Include"></a>
+             4.b. Include Graph</span></h2>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<p><font size="+1"><span style="mso-fareast-font-family:&apos;MS:">
+The include graph only contains    files covered by the example, not files
+shipped with the compiler. The arrow    file_a.h --&gt; file_b.* means file_a.h
+is included by file_b.* Examples that    do not include a header provided
+by the examples are not mentioned in this graph.</span></font></p>
+			<font size="+1">The diagram showing dependencies among include files is also 
+				available in pdf format:
+				<span style="mso-fareast-font-family:'MS Mincho'"></span><a href="examples/doc/IncludeGraph.pdf">
+					Include Graph</a>
+				<span style="mso-fareast-font-family:'MS Mincho'">(PDF&nbsp; 8 </span>KB).<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+				<br>
+				<br>
+				<img src="examples/doc/Includegraph_Seite_1_150dpi.gif" alt="include diagram page 1" width="913" height="1313">
+				<br>
+				<img src="examples/doc/Includegraph_Seite_2_150dpi.gif" alt="include diagram page 2" width="534" height="866">
+			</font>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'"></span>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'"></span>
+			<hr width="100%" size="2">
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<span style="mso-tab-count:1"></span>
+				<o:p></o:p>
+			</span>
+			<h1><span style="mso-fareast-font-family:'MS Mincho'"><a name="Directory"></a>
+             5. Directory Organization<span style="mso-tab-count:1"></span><o:p></o:p></span>
+			</h1>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span><font size="+1"><span style="mso-fareast-font-family:'MS Mincho'">
+ Directory     "examples"  contains an empty Visual C++.net project where 
+you can <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ insert a source    cpp   - file. In this directory are all files that are 
+touched <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ by the examples,     too.   That are those files that are used for input 
+and output.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Directory 
+"examples/doc" contains includes pdf and gif files for this document and a 
+version number.&nbsp;If I detect errors I will try to fix them  
+  and  increase the version number.&nbsp;<o:p></o:p></span>&nbsp;
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Directory  
+  "examples/inc"  contains all included headers.<o:p></o:p></span>
+				<br>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+					<o:p></o:p>
+				</span><br>
+				<span style="mso-fareast-font-family:'MS Mincho'">Directroy  
+  "examples/src"  contains all executable source code for all examples.<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+Each   cpp   -  file has its own main function. Each main fununction has
+a <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+return 0;<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+at its end.   That   is  a good point to set a break point and to enjoy the
+output<o:p></o:p></span>
+				before the DOS - box disappears.<span style="mso-fareast-font-family:'MS Mincho'"><o:p></o:p>
+				</span>
+			</font>
+			<br>
+			<br>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<span style="mso-tab-count:1"></span>
+			</span>
+			<hr width="100%" size="2">
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<span style="mso-tab-count:1"></span>
+			</span>
+			<h1><span style="mso-fareast-font-family:'MS Mincho'"><a name="Questions"></a>
+             6. Further Questions<span style="mso-tab-count:1"></span><o:p></o:p></span>
+			</h1>
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<font size="+1">
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ If  you   have   further questions or annotations about the examples feel 
+free  to           <o:p></o:p></span><span style="mso-fareast-font-family:'MS Mincho'">
+    contact me (</span>"Klaus Wittlich" <a class="moz-txt-link-rfc2396E" href="mailto:Klaus_Wittlich@sae.de">
+					&lt;Klaus_Wittlich@sae.de&gt;</a>
+				<span style="mso-fareast-font-family:'MS Mincho'">). As  long 
+   as I will not get too much feedback I surely will find the <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'"> time to
+answer.<o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ If you have   questions     concerning the C++ background of the examples
+it will <o:p></o:p></span>
+				<span style="mso-fareast-font-family:'MS Mincho'">
+ better   to  ask  Angelika Langer (</span>"Angelika Langer" <a class="moz-txt-link-rfc2396E" href="mailto:langer@camelot.de">
+					&lt;langer@camelot.de&gt;</a>
+				<span style="mso-fareast-font-family:'MS Mincho'">), she knows much
+  more about it than I do.</span></font><br>
+			<span style="mso-fareast-font-family:'MS Mincho'"></span><span style="mso-fareast-font-family:'MS Mincho'">
+				<br>
+			</span>
+			<hr width="100%" size="2">
+			<span style="mso-fareast-font-family:'MS Mincho'">
+				<o:p></o:p>
+			</span>
+			<p class="MsoPlainText"><span style="mso-fareast-font-family:'MS Mincho'"><span style="mso-tab-count:1"></span>
+					<o:p></o:p>
+				</span></p>
+		</div>
+	</body>
+</html>

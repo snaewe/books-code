@@ -1,0 +1,25 @@
+***** Anmerkungen zu dne Beispielen *****
+
+Für die folgenden Seiten wurden die Beipiele entfernt:
+S. 121: Kein Beispiel
+S. 122: Kein Beispiel
+S. 127: untere Hälfte: Kein Beispiel
+S. 129: Kein Beispiel
+S. 135: Kein Beispiel
+S. 137: Kein Beispiel
+Der Grund ist, dass es sich hier um mögliche STL - Beipiel - Implementationen handelt, die dann mit
+der aktuellen Implementation der Microsoft - STL verglichen wurden. Der MS - STL - Code wurde in 
+die Beipiele mit integreirt und dann kommentiert. Damit könnte, ich weis es nicht, grundsätzlich eine
+Copyrightverletzung vorliegen. Daher habe ich diese Beispiele sicherheitshalber entfernt. Der interessierte
+Leser kann dann ja selber das Buch mit seiner Implementierung vergleichen. Wenn er intelligent genug war, 
+bis dahin zu folgen, dann kann er auch die Ideen und Unterschiede in seiner Implementation erkennen :-).
+
+***** Ende Anmerkungen zu dne Beispielen *****
+
+***** Errata ??? *****
+
+Die Codezeile
+c = ' ';  // clear caracter
+scheint mir zwarnicht gefährlich, aber überflüssig zu sein.
+
+***** Ende Errata ??? *****
