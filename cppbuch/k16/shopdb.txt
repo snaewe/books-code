@@ -1,0 +1,51 @@
+create table Adresse ( 
+  Id integer primary key autoincrement,
+  Ort text,
+  Plz text, 
+  StrNr text);
+
+create table Kunde ( 
+  Id integer primary key autoincrement,
+  Name text, 
+  AdressId integer not null,
+  foreign key(AdressId) references Adresse(Id));
+
+create table Artikel (
+  Nr integer primary key, 
+  Bezeichnung text,
+  Preis numeric(8,2) not null);
+
+create table Rechnung (
+  Id integer primary key autoincrement,
+  Datum date,
+-- Kundennr darf NULL sein (Barverkauf)
+  Kundennr integer,
+  foreign key(Kundennr) references Kunde(Id));
+
+create table Position (
+  Rechnungsnr integer not null,
+  Artikelnr integer not null,
+  Menge integer,
+  check (Menge > 0), 
+  foreign key(Rechnungsnr) references Rechnung(Id),
+  foreign key(Artikelnr) references Artikel(Nr));
+
+create trigger datumtrigger after insert on Rechnung
+begin 
+  update Rechnung set Datum = DATE('NOW') where rowid = new.rowid;
+end;
+
+create view positionen as
+   select Rechnungsnr, Artikelnr,Menge,Bezeichnung, Preis, Preis*Menge
+   from (Position p join Rechnung r on Rechnungsnr=r.Id)
+       left outer join Artikel art on Artikelnr=art.Nr;
+
+-- alle rechnungsinfos
+create view alles  as
+   select Rechnungsnr,Datum,Name,Plz,Ort,StrNr,Menge,Artikelnr,
+          Bezeichnung, Preis, Preis*Menge
+   from (((Position p join Rechnung r on Rechnungsnr=r.Id)
+       left outer join Kunde k on Kundennr=k.Id)
+       left outer join Artikel art on Artikelnr=art.Nr)
+       left outer join Adresse a on AdressId=a.Id;
+

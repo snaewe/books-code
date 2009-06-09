@@ -1,0 +1,4 @@
+Die Datum-Klasse wurde gegenueber ../../k9/datum/* um einen
+Eingabe-Operator erweitert. Ferner wurde der Typumwandlungsoperator
+durch die Methode toString() ersetzt.
+

@@ -1,0 +1,13 @@
+#! /bin/sh
+SRCDIR=src
+# echo '#' $(date) >  makefile
+echo SRCDIR := $SRCDIR > makefile
+echo cppfiles :=\\ >>  makefile
+find  $SRCDIR -name "*.cpp"\
+  | sed "s%\.cpp%\.cpp\\\\%g" >> makefile
+# Leerzeile
+echo "" >> makefile
+echo include libinclude.mak >> makefile
+echo makefile erzeugt!
+
+

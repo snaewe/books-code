@@ -1,0 +1,13 @@
+Beispiel zur Demonstration von CMake
+Library und Anwendung für rationale Zahlen erzeugen
+
+
+Aufruf:
+cmake .
+(Punkt nach cmake für aktuelles Verzeichnis nicht übersehen!)
+
+Dann
+make
+
+Das wars. Die notwendigen dateien für die Unterverzeichnisse
+werden automatisch angelegt.

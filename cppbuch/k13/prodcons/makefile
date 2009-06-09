@@ -1,0 +1,5 @@
+
+include ../../make/makeProject
+INCLUDE+=-I$(BOOSTINCLUDE)
+LDFLAGS+=-L$(BOOSTLIBDIR) -l$(BOOSTTHREADLIB)
+

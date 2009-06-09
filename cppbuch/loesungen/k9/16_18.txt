@@ -1,0 +1,1 @@
+Die Lösungen sind im Beispiel cppbuch/k9/matrix/matrix.t enthalten.

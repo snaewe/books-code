@@ -1,0 +1,13 @@
+Beispiel zur Demonstration der GNU autotools
+
+Zuerst in beiden Unterverzeichnissen
+autoreconf
+automake -a
+aufrufen, dann ebenfalls in diesem Verzeichnis. Anschließendes
+./configure
+make
+
+erzeugt die Library und die ausführbare Datei.
+
+make dist
+erzeugt eine tar.gz-Datei für Distributionszwecke

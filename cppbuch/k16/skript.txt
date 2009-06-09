@@ -1,0 +1,5 @@
+shopdb.db
+select * from Kunde;
+select * from Rechnung;
+select * from alles;
+

@@ -1,0 +1,45 @@
+Nach Installation von Qt werden die Programme wie folgt 
+in den Verzeichnissen erzeugt:
+
+  qmake -project
+  qmake
+  make
+
+Alternativ: mit der IDE, die entsprechend konfiguriert sein muss
+(siehe Installationsanleitung)
+
+Linux: Das Executable ist im selben Verzeichnis.
+Win XP/Vista: Das Executable ist im Verzeichnis debug.
+
+ACHTUNG!
+Nach Programmaenderungen genuegt es,  make nochmal aufzurufen,
+aber:
+Bei Aenderungen der Dateistruktur muessen vorher auch
+  qmake -project
+  qmake
+aufgerufen werden!
+
+Bei unerklerlichen Uebersetzungsproblemen hilft manchmal,
+alle vom Meta-Objekt-Compiler erzeugten Dateien zu loeschen.
+Deren Name beginnt mit moc_. Das kann mit dem Befehl
+  make clean
+erreicht werden.
+  make distclean
+loescht zusaetzlich das Makefile und das Executable, erfordert also ein neues
+  qmake
+
+*********************************+
+An Windows-User:
+
+Falls Sie die .pro-Datei mit 
+  qmake -project
+neu erzeugen und Ihr Programm eine Konsolen-Ausgabe erwartet:
+
+CONFIG += console
+
+der .pro-Datei hinzufuegen!
+Danach wie ueblich
+  qmake
+  make
+
+

@@ -1,0 +1,38 @@
+insert into Adresse (Ort, Plz, StrNr) values('Entenhausen', '12345', 'Erpelweg 7');
+insert into Adresse (Ort, Plz, StrNr) values('Muenchen', '81679', 'Kolbergerstr. 22');
+insert into Adresse (Ort, Plz, StrNr) values('Barcelona', '08037', 'Roger De Lluria 21');
+
+-- Zahl = Adress-Index
+insert into Kunde (Name, AdressId) values('Donald Duck', 1);
+insert into Kunde (Name, AdressId) values('Addy Woollen', 3);
+insert into Kunde (Name, AdressId) values('Carl Hanser', 2);
+-- alternativ: mit select ermitteln:
+insert into Kunde (Name, AdressId) values('Daisy Duck',  
+         (select Id from Adresse where Ort='Entenhausen'));
+
+insert into Artikel values(4727, 'Schokolinsen', 1.10);
+insert into Artikel values(123, 'Champagner', 39.99);
+insert into Artikel values(9282, 'Kaffeemaschine', 21.95);
+insert into Artikel values(1912, 'Rezeptbuch', 9.00);
+
+-- Daisy kaufte 20 Schokolinsen, 1 Rezeptbuch, 1 Champagner
+insert into Rechnung (Kundennr) values((select Id from Kunde where Name='Daisy Duck'));
+--                      Rechnungsnr, Artikelnr, Stueckzahl
+insert into Position values(1, 4727, 20);
+insert into Position values(1, 1912, 1);
+-- oder mit select:
+insert into Position values((select Id from Rechnung where Rechnung.Kundennr=
+      (select Id from Kunde where Name == 'Daisy Duck')), 123, 1);
+
+-- Barverkauf, keine Kundennr
+insert into Rechnung (Kundennr) values(NULL);
+insert into Position values(2, 9282, 2);
+
+
+insert into Rechnung (Kundennr) values(3);
+insert into Position values(3, 123, 10);
+insert into Position values(3, 1912, 1);
+
+insert into Rechnung (Kundennr) values(2);
+insert into Position values(4, 123, 50);
+

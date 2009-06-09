@@ -1,0 +1,25 @@
+# Compiliert alle .cpp-Dateien im aktuellen Verzeichnis, und zwar
+# jede für sich, d.h. jede Datei muß eine main-Funktion enthalten
+# Standardcompiler mind. G++ 4.3:
+
+### die naechste Zeile anpassen, falls cppbuch NICHT in $HOME liegt!
+CPPBUCH_HOME=$(HOME)/cppbuch
+
+include $(CPPBUCH_HOME)/make/include.mak
+EXES := $(patsubst %.cpp,%.exe,$(wildcard *.cpp))
+HEADERS := $(wildcard *.h)
+TEMPLATES := $(wildcard *.t)
+.PHONY: clean alles
+
+alles: $(EXES)
+
+%.exe : %.o
+	-$(CXX) -o $@  $< $(LDFLAGS)
+
+%.o : %.cpp  $(HEADERS) $(TEMPLATES)
+	-$(CXX) $(CXXFLAGS) $(INCLUDE) $< -o $@
+
+clean:
+	$(RM) $(EXES)
+
+

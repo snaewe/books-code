@@ -1,0 +1,13 @@
+Beispielanwendung zur Demonstration der GNU autotools
+Library für rationale Zahlen erzeugen
+
+Aufruf:
+autoreconf
+automake -a
+
+Dann
+./configure
+make
+
+zur Erzeugung der Library. Alternativ: Aufruf vom
+Oberverzeichnis aus.

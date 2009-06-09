@@ -1,0 +1,6 @@
+Benutzung: Nach Compilation und Linken (c exstream)
+   exstream.e < nummern 
+(Unix) bzw. 
+   exstream.exe < nummern 
+(MSDOS) aufrufen. 
+

@@ -1,0 +1,14 @@
+Beispielanwendung zur Demonstration der GNU autotools
+Erzeugung einer ausführbaren Datei
+
+Aufruf:
+autoreconf
+automake -a
+
+und, falls dasselbe schon in ../libprojekt geschehen ist
+
+./configure
+make
+
+zur Erzeugung des Executables. Alternativ: Aufruf vom
+Oberverzeichnis aus.

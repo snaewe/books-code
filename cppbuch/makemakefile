@@ -1,0 +1,15 @@
+rm -f makefile
+echo all:> temporaer.txt
+find . -name makefile\
+  | sed "s%\./%\	\$(MAKE) -C %g" \
+  | sed "s%/makefile%%g" >> temporaer.txt
+echo clean:>> temporaer.txt
+find . -name makefile\
+  | sed "s%\./%\	\$(MAKE) -C %g" \
+  | sed "s%/makefile% clean%g" >> temporaer.txt
+# alle mit src ausklammern, weil die von übergeordneten Verzeichnissen
+# aufgerufen werden
+grep -v "/src/" temporaer.txt > temporaer1.txt
+mv temporaer1.txt makefile
+rm temporaer.txt
+echo makefile erzeugt! Aufruf: make oder make clean

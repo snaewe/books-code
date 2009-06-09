@@ -1,0 +1,7 @@
+Mehrfachvererbung mit Namenskonflikt (main.cc: Zeile 23)
+Test durch Entfernen von //
+
+graphobj.h und rechteck.h sind gleich mit den
+entsprechenden Dateien in ../../abstrakt/
+
+
